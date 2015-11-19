@@ -1,0 +1,23 @@
+{
+    "dependencies": [
+        {
+            "class": "ride\\service\\CmsVarnishService",
+            "id": "generic",
+            "calls": [
+                {
+                    "method": "addVarnishServer",
+                    "arguments": [
+                        {
+                            "name": "varnishServer",
+                            "type": "dependency",
+                            "properties": {
+                                "interface": "ride\\library\\varnish\\VarnishServer",
+                                "id": "parameter"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
