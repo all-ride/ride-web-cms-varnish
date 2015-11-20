@@ -2,7 +2,7 @@
     "name": "ride/web-cms-varnish",
     "description": "Varnish integration for the CMS of a Ride application",
     "license": "MIT",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "authors": [
         {
             "name": "Joris Vandeweerd",
