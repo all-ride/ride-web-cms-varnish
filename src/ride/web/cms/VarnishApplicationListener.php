@@ -69,7 +69,7 @@ class VarnishApplicationListener {
         if (!$this->needsAction && $this->banNodes) {
             // register event to clear when the controller has finished
             // processing the request
-            $eventManager->addEventListener('app.response.pre', array($this, 'handleVarnish'), 1);
+            $eventManager->addEventListener('app.response.pre', array($this, 'handleVarnish'), 2);
 
             $this->needsAction = true;
         }
