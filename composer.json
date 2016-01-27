@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-0": {
-            "ride\\service\\CmsVarnishServer": ["src/"],
+            "ride\\service\\CmsVarnishService": ["src/"],
             "ride\\web\\cms\\VarnishApplicationListener": ["src/"]
         }
     }
