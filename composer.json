@@ -2,7 +2,7 @@
     "name": "ride/web-cms-varnish",
     "description": "Varnish integration for the CMS of a Ride application",
     "license": "MIT",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "authors": [
         {
             "name": "Joris Vandeweerd",
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-0": {
-            "ride\\service\\CmsVarnishServer": ["src/"],
+            "ride\\service\\CmsVarnishService": ["src/"],
             "ride\\web\\cms\\VarnishApplicationListener": ["src/"]
         }
     }
