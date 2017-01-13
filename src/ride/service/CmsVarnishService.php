@@ -121,7 +121,7 @@ class CmsVarnishService {
         $children = $node->getChildren();
         if ($children) {
             foreach ($children as $child) {
-                $result = $this->getBanUrls($child, $locale, $baseUrl, true, $result);
+                $result = $this->getBanUrls($child, $baseUrl, $locale, true, $result);
             }
         }
 
