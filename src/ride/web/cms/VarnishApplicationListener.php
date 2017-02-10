@@ -22,7 +22,7 @@ class VarnishApplicationListener {
 
     /**
      * Nodes to ban
-     * @param array
+     * @var array
      */
     private $banNodes;
 
@@ -54,11 +54,13 @@ class VarnishApplicationListener {
             return;
         }
 
+        // retrieve the saved nodes and mark the nodes for ban
         $nodes = $event->getArgument('nodes');
         foreach ($nodes as $node) {
             $this->banNodes[$node->getId()] = $node;
         }
 
+        // retrieve the deleted nodes and mark the nodes for ban
         $deletedNodes = $event->getArgument('deletedNodes');
         if ($deletedNodes) {
             foreach ($deletedNodes as $node) {
@@ -66,9 +68,9 @@ class VarnishApplicationListener {
             }
         }
 
+        // register event to clear when the controller has finished processing
+        // the request
         if (!$this->needsAction && $this->banNodes) {
-            // register event to clear when the controller has finished
-            // processing the request
             $eventManager->addEventListener('app.response.pre', array($this, 'handleVarnish'), 2);
 
             $this->needsAction = true;
@@ -86,15 +88,12 @@ class VarnishApplicationListener {
         $request = $web->getRequest();
         $baseUrl = $request->getBaseUrl();
 
-        $route = $request->getRoute();
-        if ($route) {
-            $locale = $route->getArgument('locale');
-        } else {
-            $locale = null;
-        }
+        $locales = $this->cms->getLocales();
 
         foreach ($this->banNodes as $node) {
-            $this->varnishService->banNode($node, $baseUrl, $locale);
+            foreach ($locales as $locale => $null) {
+                $this->varnishService->banNode($node, $baseUrl, $locale);
+            }
         }
 
         $this->banNodes = array();
