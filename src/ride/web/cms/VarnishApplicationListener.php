@@ -88,7 +88,7 @@ class VarnishApplicationListener {
         $request = $web->getRequest();
         $baseUrl = $request->getBaseUrl();
 
-        $locales = $this->cms->getLocales();
+        $locales = $this->varnishService->getLocales();
 
         foreach ($this->banNodes as $node) {
             foreach ($locales as $locale => $null) {

@@ -30,6 +30,14 @@ class CmsVarnishService {
     }
 
     /**
+     * Gets the locales
+     * @return array
+     */
+    public function getLocales() {
+        return $this->cms->getLocales();
+    }
+
+    /**
      * Adds a Varnish server instance to the service
      * @param \ride\library\varnish\VarnishServer $varnishServer
      * @return null
