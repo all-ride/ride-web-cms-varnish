@@ -20,6 +20,8 @@ class CmsVarnishService {
      */
     protected $varnishServers = array();
 
+    protected \ride\web\Cms|Cms $cms;
+
     /**
      * Constructs the CMS varnish service
      * @param \ride\web\Cms $cms
