@@ -31,6 +31,7 @@ class VarnishApplicationListener {
      * @var boolean
      */
     private $needsAction;
+    private $varnishService;
 
     /**
      * Constructs a new Varnish application listener
